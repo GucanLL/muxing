@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<properties resource="application-local.properties" />
+	<classPathEntry location="C:/Users/issuser/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar"/>
+	<context id="muxing_tables" targetRuntime="MyBatis3">
+		<property name="mybatis.generator.overwrite" value="true"/>
+       	<commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+		<jdbcConnection driverClass="${jdbc.driver}"
+			connectionURL="${jdbc.url}" userId="${jdbc.username}"
+			password="${jdbc.password}" />
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+        
+		<javaModelGenerator targetPackage="org.muxing.base.model"
+			targetProject="muxing" />
+		
+		<javaClientGenerator targetPackage="org.muxing.base.mapper"
+			targetProject="muxing" type="ANNOTATEDMAPPER" >
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>	
+		<table tableName="mx_test" domainObjectName="MxTest"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+	</context>
+</generatorConfiguration>
